@@ -1,3 +1,6 @@
+## Data
+Please kindly find the data [link](https://smu-my.sharepoint.com/:u:/g/personal/ivanairsan_smu_edu_sg/EVwqxPdn_0tDl-Zhse0KCj4Bty3iEGuoAWWy2inAlhYTnQ?e=Htfks2).
+
 ## Training
 ### single-annotation
 ```bash
@@ -22,14 +25,6 @@ CUDA_VISIBLE_DEVICES=3 python dual-run.py --max_length 256 --batch_size 16 --epo
 continue training
 ```bash
 CUDA_VISIBLE_DEVICES=1 python dual-run.py --max_length 256 --batch_size 16 --epoch 20 --output_dir '18-Oct-dual' --load_model_path '14-Oct-dual/checkpoint-best-bleu/pytorch_model.bin'
-```
-
-
-### tri-model
-```bash
-CUDA_VISIBLE_DEVICES=2 python tri-run.py --max_length 64 --batch_size 64 --output_dir '17-Oct-tri-biker'
-
-CUDA_VISIBLE_DEVICES=0 python tri-run.py --max_length 64 --batch_size 64 --output_dir '17-Oct-tri-bert'
 ```
 
 ## Evaluation
@@ -61,11 +56,6 @@ CUDA_VISIBLE_DEVICES=3 python evaluate.py --model_type 2 --load_model_path 14-Oc
 CUDA_VISIBLE_DEVICES=3 python evaluate.py --model_type 2 --load_model_path 14-Oct-dual/checkpoint-best-bleu/pytorch_model.bin --test_filename ../data/test_3_lines_dedup.csv --output_dir 14-Oct-dual/code-only --max_length 256
 ```
 
-### tri-model
-```bash
-CUDA_VISIBLE_DEVICES=2 python evaluate.py --model_type 3 --load_model_path 13-Oct-tri/checkpoint-best-bleu/pytorch_model.bin --test_filename ../data/test_3_lines_dedup.csv --output_dir 13-Oct-tri/res
-```
-
 ## Calculate the results
 ### single-annotation
 ```bash
@@ -80,9 +70,4 @@ python calculate_bleu_score.py --reference end-to-end/13-Oct-single-code/res/tes
 ### dual-model
 ```bash
 python calculate_bleu_score.py --reference end-to-end/14-Oct-dual/res/test_ref.csv --candidate end-to-end/14-Oct-dual/res/test_hyp.csv
-```
-
-### tri-model
-```bash
-python calculate_bleu_score.py --reference end-to-end/13-Oct-tri/res/test_ref.csv --candidate end-to-end/13-Oct-tri/res/test_hyp.csv
 ```

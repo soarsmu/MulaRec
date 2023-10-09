@@ -1,5 +1,5 @@
 ## Data
-Please kindly find the data [link](https://smu-my.sharepoint.com/:f:/g/personal/tingzhang_2019_phdcs_smu_edu_sg/Ev-BWEkJnNVEoGsl0Z2m7pEBLuvpHr1uH7gKScfDtEnvtA?e=TDEPXg)).
+Please kindly find the data [link](https://smu-my.sharepoint.com/:f:/g/personal/tingzhang_2019_phdcs_smu_edu_sg/Ev-BWEkJnNVEoGsl0Z2m7pEBLuvpHr1uH7gKScfDtEnvtA?e=TDEPXg).
 
 ## Training
 ### single-annotation

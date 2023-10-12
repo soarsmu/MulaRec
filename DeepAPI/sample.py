@@ -23,8 +23,9 @@ def evaluate(model, metrics, test_loader, vocab_desc, vocab_api, repeat, decode_
 
     if is_test:
         for descs, desc_lens, apiseqs, api_lens, context_apis, context_api_lens in tqdm(test_loader):
-            if local_t>100:
-                break        
+            # FOR DEBUGGING
+            # if local_t>100:
+            #     break        
             
             desc_str = indexes2sent(descs[0].numpy(), vocab_desc)
             
@@ -63,7 +64,6 @@ def evaluate(model, metrics, test_loader, vocab_desc, vocab_api, repeat, decode_
             desc_str = indexes2sent(descs[0].numpy(), vocab_desc)
             
             descs, desc_lens = [tensor.to(device) for tensor in [descs, desc_lens]]
-            # context_apis, context_api_lens = [tensor.to(device) for tensor in [context_apis, context_api_lens]]
 
             with torch.no_grad():
                 sample_words, sample_lens = model.sample(descs, desc_lens, repeat, decode_mode=decode_mode)
